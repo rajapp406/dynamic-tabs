@@ -1,0 +1,15 @@
+<app-tabs (addTab)="onAddTab()">
+     <app-tab [tabTitle]="'Static Tab'">
+      <h3>This is Static Tab Example</h3>
+    </app-tab> 
+    
+  </app-tabs>
+
+  <ng-template let-data="data" #logonFormTemplate>
+    <app-user-login [data]="data"></app-user-login>
+  </ng-template>
+  <ng-template #tab2>
+    <h2>
+      This is tab 2 content!
+    </h2>
+  </ng-template>

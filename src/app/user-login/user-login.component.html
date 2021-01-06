@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLoginFormSubmit()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username">
+      <ng-container *ngIf="username.touched">
+        <span *ngIf="username.value == ''; else validateUsername" class="errors">Plesase enter username</span>
+        <ng-template #validateUsername>
+          <span *ngIf="username?.errors?.minlength" class="errors">Username should be minimum 6 letters</span>
+        </ng-template>
+      </ng-container>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" placeholder="Email" formControlName="email">
+      <ng-container *ngIf="email.touched">
+        <span *ngIf="email.value == ''; else validateEmail" class="errors">Plesase enter email</span>
+        <ng-template #validateEmail>
+          <span *ngIf="email?.errors?.validateEmail?.valid === false" class="errors">Plesase enter valid email should end with {{emailValidCompany}}</span>
+        </ng-template>
+      </ng-container>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="password" formControlName="password">
+        <ng-container *ngIf="password.touched">
+            <span *ngIf="password.value == ''; else validatePassword" class="errors">Plesase enter password</span>
+            <ng-template #validatePassword>
+              <span *ngIf="password?.errors?.validatePassword?.valid === false" class="errors">Password should have atleast 1 Uppercase letter, 1 special character and minimum 8 letters</span>
+            </ng-template>
+          </ng-container>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>

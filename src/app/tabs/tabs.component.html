@@ -1,0 +1,29 @@
+<ul class="nav nav-tabs">
+  <li>
+    <button *ngIf="dynamicTabs.length" (click)="closeLastTab()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </li>
+  <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
+    <a href="#">
+      <app-tab-title [tabTitleData]="tab" [isCloseable]="false" (closeTab)="closeTab($event)">
+        <mat-icon>face</mat-icon>
+      </app-tab-title>
+    </a>
+  </li>
+
+  <li *ngFor="let tab of dynamicTabs" (click)="selectTab(tab)" [class.active]="tab.active">
+    <a [class.active]="tab.active" href="#">
+      <app-tab-title [tabTitleData]="tab" (closeTab)="closeTab($event)">
+        <mat-icon>face</mat-icon>
+      </app-tab-title>
+    </a>
+  </li>
+  <li>
+    <button (click)="openNewTab($event)">
+      <mat-icon>add</mat-icon>
+    </button>
+  </li>
+</ul>
+<ng-content></ng-content>
+<ng-template dynamic-tabs #container></ng-template>

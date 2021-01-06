@@ -1,0 +1,1 @@
+export const DEFAULT_VALIDATE_COMPANY_EMAIL = "epam.com";
