@@ -10,7 +10,7 @@ import { IUserLogin, UserLogin } from "../types/user.type";
 export class UserService {
   public userLogin$ = new BehaviorSubject<UserLogin>({
     type: "NOT_LOGGEDIN",
-    data: true
+    data: []
   });
   private userLogin = this.userLogin$.asObservable();
   constructor(private http: HttpClient) {}
