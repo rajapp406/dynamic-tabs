@@ -1,7 +1,7 @@
 import { FormControl } from "@angular/forms";
-import { DAFAULT_VALIDATE_COMPANY_EMAIL } from "../constants/generic.const";
+import { DEFAULT_VALIDATE_COMPANY_EMAIL } from "../constants/generic.const";
 
-export function validateEmail(company = DAFAULT_VALIDATE_COMPANY_EMAIL) {
+export function validateEmail(company = DEFAULT_VALIDATE_COMPANY_EMAIL) {
     let EMAIL_REGEXP = `^[a-z_1-9]+@${company}$`;
     let regExObj = new RegExp(EMAIL_REGEXP, "g")
     return function (c: FormControl) {
